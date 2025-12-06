@@ -352,25 +352,52 @@
 <div class="page">
 <header>
   <div class="nav">
+    <!-- LEFT: Logo -->
     <div class="nav-left">
-      <img src="img/deoyin-px-logo.png"
+      <img src="/img/deoyin-px-logo.png"
            alt="Deoyin PX Logo"
-           style="height:48px; width:auto; margin-right:10px;">
+           style="height:40px; width:auto; margin-right:10px;">
       <div class="logo-text">
         <div class="logo-text-main">DEOYIN PX</div>
         <div class="logo-text-sub">Clinical Analytics & Automation</div>
       </div>
     </div>
 
-    <div class="nav-center">
-      <a class="nav-link" href="index.html">Home</a>
-      <a class="nav-link" href="about.html">About Us</a>
-      <a class="nav-link" href="services.html">Products & Services</a>
-      <a class="nav-link" href="insights.html">Insights</a>
-    </div>
+    <!-- CENTER: Main navigation -->
+    <nav class="nav-center">
+      <!-- On EACH page, set nav-active on the relevant link -->
 
+      <!-- Home -->
+      <a href="/"
+         class="nav-link <!--HOME_ACTIVE-->">
+        Home
+      </a>
+
+      <!-- About Us -->
+      <a href="/about/"
+         class="nav-link <!--ABOUT_ACTIVE-->">
+        About Us
+      </a>
+
+      <!-- Products / Services -->
+      <a href="/services/"
+         class="nav-link <!--SERVICES_ACTIVE-->">
+        Products &amp; Services
+      </a>
+
+      <!-- Insights -->
+      <a href="/insights/"
+         class="nav-link <!--INSIGHTS_ACTIVE-->">
+        Insights
+      </a>
+    </nav>
+
+    <!-- RIGHT: Brand chip + Call to action -->
     <div class="nav-right">
-      <a class="btn btn-primary" href="consultation.html">
+      <div class="nav-chip">A Deoyin and Company LLC Brand</div>
+      <a class="btn btn-primary"
+         href="/consultation/"
+         style="padding: 6px 16px; font-size: 0.82rem;">
         Get Consultation
       </a>
     </div>
