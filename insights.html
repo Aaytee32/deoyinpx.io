@@ -1,0 +1,393 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Insights | Deoyin PX</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="Deoyin PX Insights – short, practical posts on PK/PD automation, CDISC workflows, HEOR/ICER, and clinical analytics." />
+  <style>
+    :root {
+      --bg-dark: #050814;
+      --bg-hero-grad: linear-gradient(135deg, #050814, #111827, #1f2937);
+      --accent: #f59e0b;
+      --accent-soft: rgba(245, 158, 11, 0.1);
+      --text-main: #e5e7eb;
+      --text-muted: #9ca3af;
+      --card-bg: #0b1120;
+      --border-subtle: #1f2937;
+      --chip-bg: rgba(31, 41, 55, 0.8);
+      --link: #38bdf8;
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background: radial-gradient(circle at top, #020617 0, #020617 40%, #020617 100%);
+      color: var(--text-main);
+      line-height: 1.6;
+    }
+
+    a { color: var(--link); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+
+    .page { min-height: 100vh; display: flex; flex-direction: column; }
+
+    header {
+      background: var(--bg-hero-grad);
+      border-bottom: 1px solid #111827;
+      position: sticky;
+      top: 0;
+      z-index: 20;
+    }
+
+    .nav {
+      max-width: 1120px;
+      margin: 0 auto;
+      padding: 16px 20px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+    }
+
+    .nav-left {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .logo-text { display: flex; flex-direction: column; }
+
+    .logo-text-main {
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      font-size: 0.9rem;
+      text-transform: uppercase;
+    }
+
+    .logo-text-sub {
+      font-size: 0.7rem;
+      color: var(--text-muted);
+    }
+
+    .nav-center {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+    }
+
+    .nav-center .nav-link {
+      font-size: 0.85rem;
+      padding: 8px 12px;
+      border-radius: 999px;
+      color: var(--text-main);
+      border: 1px solid rgba(148, 163, 184, 0.25);
+      transition: background 0.2s, border-color 0.2s;
+      text-decoration: none;
+    }
+
+    .nav-center .nav-link:hover {
+      background: rgba(148, 163, 184, 0.15);
+      border-color: rgba(148, 163, 184, 0.5);
+    }
+
+    .nav-center .nav-link.active {
+      background: var(--accent-soft);
+      border-color: var(--accent);
+      color: var(--accent);
+      font-weight: 600;
+    }
+
+    .nav-right {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 0.85rem;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 10px 20px;
+      border-radius: 999px;
+      font-size: 0.9rem;
+      border: 1px solid transparent;
+      cursor: pointer;
+      text-decoration: none;
+    }
+
+    .btn-primary {
+      background: var(--accent);
+      border-color: var(--accent);
+      color: #020617;
+      font-weight: 600;
+      box-shadow: 0 12px 30px rgba(0,0,0,0.4);
+    }
+
+    .btn-primary:hover { filter: brightness(1.05); }
+
+    @media (max-width: 900px) {
+      .nav { flex-wrap: wrap; justify-content: center; }
+      .nav-center { order: 3; flex-wrap: wrap; justify-content: center; }
+    }
+
+    main { flex: 1; }
+
+    .section { padding: 40px 20px; }
+
+    .section-inner { max-width: 1120px; margin: 0 auto; }
+
+    .page-eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 4px 10px;
+      border-radius: 999px;
+      background: var(--accent-soft);
+      color: var(--accent);
+      font-size: 0.78rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+    }
+
+    .page-title {
+      font-size: clamp(1.9rem, 2.6vw + 1rem, 2.4rem);
+      font-weight: 650;
+      letter-spacing: -0.03em;
+      margin: 14px 0 8px;
+    }
+
+    .page-subtitle {
+      font-size: 0.95rem;
+      color: var(--text-muted);
+      max-width: 720px;
+    }
+
+    .filters {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 20px;
+      font-size: 0.8rem;
+    }
+
+    .chip {
+      padding: 6px 10px;
+      border-radius: 999px;
+      background: var(--chip-bg);
+      border: 1px solid #1f2937;
+      color: var(--text-muted);
+      cursor: default;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px,1fr));
+      gap: 18px;
+      margin-top: 24px;
+    }
+
+    .post-card {
+      background: var(--card-bg);
+      border-radius: 16px;
+      padding: 18px 18px 20px;
+      border: 1px solid var(--border-subtle);
+      box-shadow: 0 10px 30px rgba(15, 23, 42, 0.7);
+      font-size: 0.87rem;
+      color: var(--text-muted);
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+
+    .post-meta {
+      font-size: 0.75rem;
+      color: var(--text-muted);
+    }
+
+    .post-title {
+      font-size: 0.98rem;
+      color: var(--text-main);
+      margin: 0;
+    }
+
+    .post-tag-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      margin-top: 4px;
+    }
+
+    .post-tag {
+      padding: 3px 7px;
+      border-radius: 999px;
+      border: 1px solid #1f2937;
+      font-size: 0.7rem;
+      color: var(--text-muted);
+      background: #020617;
+    }
+
+    footer {
+      border-top: 1px solid #111827;
+      background: #020617;
+      font-size: 0.8rem;
+      color: var(--text-muted);
+    }
+
+    .footer-inner {
+      max-width: 1120px;
+      margin: 0 auto;
+      padding: 14px 20px 18px;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      gap: 10px;
+      align-items: center;
+    }
+  </style>
+</head>
+<body>
+<div class="page">
+<header>
+  <div class="nav">
+    <div class="nav-left">
+      <img src="img/deoyin-px-logo.png"
+           alt="Deoyin PX Logo"
+           style="height:48px; width:auto; margin-right:10px;">
+      <div class="logo-text">
+        <div class="logo-text-main">DEOYIN PX</div>
+        <div class="logo-text-sub">Clinical Analytics & Automation</div>
+      </div>
+    </div>
+
+    <div class="nav-center">
+      <a class="nav-link" href="index.html">Home</a>
+      <a class="nav-link" href="about.html">About Us</a>
+      <a class="nav-link" href="services.html">Products & Services</a>
+      <a class="nav-link active" href="insights.html">Insights</a>
+    </div>
+
+    <div class="nav-right">
+      <a class="btn btn-primary" href="consultation.html">
+        Get Consultation
+      </a>
+    </div>
+  </div>
+</header>
+
+<main>
+  <section class="section">
+    <div class="section-inner">
+      <div class="page-eyebrow">Insights</div>
+      <h1 class="page-title">Short, practical notes on modern clinical analytics.</h1>
+      <p class="page-subtitle">
+        Deoyin PX Insights highlight small, actionable ideas around PK/PD automation, CDISC workflows, HEOR/ICER modeling, and AI-assisted reporting—built for busy biometrics and clinical teams.
+      </p>
+
+      <div class="filters">
+        <span class="chip">PK/PD Automation</span>
+        <span class="chip">CDISC & TLFs</span>
+        <span class="chip">HEOR & ICER</span>
+        <span class="chip">Reporting Automation</span>
+        <span class="chip">AI in Clinical Analytics</span>
+      </div>
+
+      <!-- Blog-style cards (static placeholders you can later link out) -->
+      <div class="grid" style="margin-top:26px;">
+        <article class="post-card">
+          <div class="post-meta">PK/PD Automation · 4 min read</div>
+          <h2 class="post-title">
+            Turning NCA Tables into a Reusable PK Template
+          </h2>
+          <p>
+            Many teams rebuild PK tables from scratch for every study. This note walks through how to standardize column structures, units, and QC checks so the same script can serve an entire portfolio.
+          </p>
+          <div class="post-tag-row">
+            <span class="post-tag">PK/PD</span>
+            <span class="post-tag">R workflows</span>
+            <span class="post-tag">Reusability</span>
+          </div>
+        </article>
+
+        <article class="post-card">
+          <div class="post-meta">CDISC & TLFs · 5 min read</div>
+          <h2 class="post-title">
+            Designing a TLF Library that Scales Across Studies
+          </h2>
+          <p>
+            Instead of one-off programs, think in terms of parameterized TLF “patterns” that map to ADaM structures. This mindset reduces validation burden and keeps outputs consistent across trials.
+          </p>
+          <div class="post-tag-row">
+            <span class="post-tag">CDISC</span>
+            <span class="post-tag">ADaM</span>
+            <span class="post-tag">TLF design</span>
+          </div>
+        </article>
+
+        <article class="post-card">
+          <div class="post-meta">HEOR & ICER · 6 min read</div>
+          <h2 class="post-title">
+            ICER Models that Stay in Sync Between R and Excel
+          </h2>
+          <p>
+            A common failure mode is divergence between an Excel model and the R implementation. Here’s how to structure shared inputs, transformations, and QC so both views remain aligned.
+          </p>
+          <div class="post-tag-row">
+            <span class="post-tag">ICER</span>
+            <span class="post-tag">Excel + R</span>
+            <span class="post-tag">Model governance</span>
+          </div>
+        </article>
+
+        <article class="post-card">
+          <div class="post-meta">Reporting Automation · 3 min read</div>
+          <h2 class="post-title">
+            From “Copy-Paste” to Parameterized Word Reports
+          </h2>
+          <p>
+            Most clinical teams still paste tables and figures into Word. With templated doc generation, one script can populate multiple sections, update iteratively, and preserve formatting.
+          </p>
+          <div class="post-tag-row">
+            <span class="post-tag">Word automation</span>
+            <span class="post-tag">R Markdown / officer</span>
+          </div>
+        </article>
+
+        <article class="post-card">
+          <div class="post-meta">AI in Clinical Analytics · 4 min read</div>
+          <h2 class="post-title">
+            Where AI Fits (and Doesn’t) in PK & HEOR Workflows
+          </h2>
+          <p>
+            AI is powerful for summarization and drafting, but the analytical backbone must remain deterministic and auditable. This note sketches a safe division of labour between code and AI.
+          </p>
+          <div class="post-tag-row">
+            <span class="post-tag">AI</span>
+            <span class="post-tag">Governance</span>
+          </div>
+        </article>
+      </div>
+
+      <p style="margin-top:28px; font-size:0.88rem; color:var(--text-muted);">
+        Want to turn one of these topics into a concrete workflow or internal tool?
+        <a href="consultation.html">Start with a short consultation.</a>
+      </p>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="footer-inner">
+    <span>© <span id="year"></span> Deoyin PX · A Deoyin and Company LLC Brand.</span>
+    <span style="font-size: 0.78rem;">PK/PD · CDISC · HEOR · Automation · AI-assisted Analytics</span>
+  </div>
+</footer>
+</div>
+<script>
+  document.getElementById("year").textContent = new Date().getFullYear();
+</script>
+</body>
+</html>
