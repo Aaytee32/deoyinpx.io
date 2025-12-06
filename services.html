@@ -1,0 +1,402 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Products & Services | Deoyin PX</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="Explore Deoyin PX service offerings across PK/PD analytics, CDISC programming, HEOR/ICER modeling, automation, and workflow apps." />
+  <style>
+    :root {
+      --bg-dark: #050814;
+      --bg-hero-grad: linear-gradient(135deg, #050814, #111827, #1f2937);
+      --accent: #f59e0b;
+      --accent-soft: rgba(245, 158, 11, 0.1);
+      --text-main: #e5e7eb;
+      --text-muted: #9ca3af;
+      --card-bg: #0b1120;
+      --border-subtle: #1f2937;
+      --chip-bg: rgba(31, 41, 55, 0.8);
+      --link: #38bdf8;
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background: radial-gradient(circle at top, #020617 0, #020617 40%, #020617 100%);
+      color: var(--text-main);
+      line-height: 1.6;
+    }
+
+    a { color: var(--link); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+
+    .page { min-height: 100vh; display: flex; flex-direction: column; }
+
+    header {
+      background: var(--bg-hero-grad);
+      border-bottom: 1px solid #111827;
+      position: sticky;
+      top: 0;
+      z-index: 20;
+    }
+
+    .nav {
+      max-width: 1120px;
+      margin: 0 auto;
+      padding: 16px 20px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+    }
+
+    .nav-left {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .logo-text { display: flex; flex-direction: column; }
+
+    .logo-text-main {
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      font-size: 0.9rem;
+      text-transform: uppercase;
+    }
+
+    .logo-text-sub {
+      font-size: 0.7rem;
+      color: var(--text-muted);
+    }
+
+    .nav-center {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+    }
+
+    .nav-center .nav-link {
+      font-size: 0.85rem;
+      padding: 8px 12px;
+      border-radius: 999px;
+      color: var(--text-main);
+      border: 1px solid rgba(148, 163, 184, 0.25);
+      transition: background 0.2s, border-color 0.2s;
+      text-decoration: none;
+    }
+
+    .nav-center .nav-link:hover {
+      background: rgba(148, 163, 184, 0.15);
+      border-color: rgba(148, 163, 184, 0.5);
+    }
+
+    .nav-center .nav-link.active {
+      background: var(--accent-soft);
+      border-color: var(--accent);
+      color: var(--accent);
+      font-weight: 600;
+    }
+
+    .nav-right {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 0.85rem;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 10px 20px;
+      border-radius: 999px;
+      font-size: 0.9rem;
+      border: 1px solid transparent;
+      cursor: pointer;
+      text-decoration: none;
+    }
+
+    .btn-primary {
+      background: var(--accent);
+      border-color: var(--accent);
+      color: #020617;
+      font-weight: 600;
+      box-shadow: 0 12px 30px rgba(0,0,0,0.4);
+    }
+
+    .btn-primary:hover { filter: brightness(1.05); }
+
+    @media (max-width: 900px) {
+      .nav { flex-wrap: wrap; justify-content: center; }
+      .nav-center { order: 3; flex-wrap: wrap; justify-content: center; }
+    }
+
+    main { flex: 1; }
+
+    .section { padding: 40px 20px; }
+
+    .section-inner { max-width: 1120px; margin: 0 auto; }
+
+    .page-eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 4px 10px;
+      border-radius: 999px;
+      background: var(--accent-soft);
+      color: var(--accent);
+      font-size: 0.78rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+    }
+
+    .page-title {
+      font-size: clamp(1.9rem, 2.6vw + 1rem, 2.4rem);
+      font-weight: 650;
+      letter-spacing: -0.03em;
+      margin: 14px 0 8px;
+    }
+
+    .page-subtitle {
+      font-size: 0.95rem;
+      color: var(--text-muted);
+      max-width: 720px;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px,1fr));
+      gap: 18px;
+      margin-top: 24px;
+    }
+
+    .card {
+      background: var(--card-bg);
+      border-radius: 16px;
+      padding: 18px 18px 20px;
+      border: 1px solid var(--border-subtle);
+      box-shadow: 0 10px 30px rgba(15, 23, 42, 0.7);
+      font-size: 0.87rem;
+      color: var(--text-muted);
+    }
+
+    .card h3 {
+      margin: 0 0 8px;
+      font-size: 0.98rem;
+      color: var(--text-main);
+    }
+
+    .tag-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 10px;
+    }
+
+    .tag {
+      padding: 3px 8px;
+      border-radius: 999px;
+      background: #020617;
+      border: 1px solid #1f2937;
+      font-size: 0.7rem;
+      color: var(--text-muted);
+    }
+
+    .two-col {
+      display: grid;
+      grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr);
+      gap: 24px;
+      margin-top: 30px;
+    }
+
+    @media (max-width: 900px) {
+      .two-col { grid-template-columns: minmax(0,1fr); }
+    }
+
+    ul { padding-left: 20px; }
+
+    footer {
+      border-top: 1px solid #111827;
+      background: #020617;
+      font-size: 0.8rem;
+      color: var(--text-muted);
+    }
+
+    .footer-inner {
+      max-width: 1120px;
+      margin: 0 auto;
+      padding: 14px 20px 18px;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      gap: 10px;
+      align-items: center;
+    }
+  </style>
+</head>
+<body>
+<div class="page">
+<header>
+  <div class="nav">
+    <div class="nav-left">
+      <img src="img/deoyin-px-logo.png"
+           alt="Deoyin PX Logo"
+           style="height:48px; width:auto; margin-right:10px;">
+      <div class="logo-text">
+        <div class="logo-text-main">DEOYIN PX</div>
+        <div class="logo-text-sub">Clinical Analytics & Automation</div>
+      </div>
+    </div>
+
+    <div class="nav-center">
+      <a class="nav-link" href="index.html">Home</a>
+      <a class="nav-link" href="about.html">About Us</a>
+      <a class="nav-link active" href="services.html">Products & Services</a>
+      <a class="nav-link" href="insights.html">Insights</a>
+    </div>
+
+    <div class="nav-right">
+      <a class="btn btn-primary" href="consultation.html">
+        Get Consultation
+      </a>
+    </div>
+  </div>
+</header>
+
+<main>
+  <section class="section">
+    <div class="section-inner">
+      <div class="page-eyebrow">Services</div>
+      <h1 class="page-title">PK/PD, CDISC, HEOR & automation—packaged as real deliverables.</h1>
+      <p class="page-subtitle">
+        Deoyin PX provides project-ready service packages. Each engagement is scoped with clear inputs, outputs, and timelines, using reproducible code and validated workflows.
+      </p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="section-inner">
+      <h2 style="font-size:1.25rem; margin-bottom:10px;">Service Lines</h2>
+      <div class="grid">
+        <div class="card">
+          <h3>PK/PD Analytics & Reporting</h3>
+          <p>
+            End-to-end PK workflows: from raw concentration-time data through QC, NCA-ready tables, and submission-friendly appendices.
+          </p>
+          <div class="tag-list">
+            <span class="tag">C<sub>max</sub>, T<sub>max</sub>, AUC</span>
+            <span class="tag">NCA datasets</span>
+            <span class="tag">PK listings & figures</span>
+          </div>
+        </div>
+
+        <div class="card">
+          <h3>CDISC & Regulatory Programming</h3>
+          <p>
+            ADaM programming (ADSL, ADAE, ADTTE, and study-specific ADaMs), TLF production, and Pinnacle 21 validation with issue tracking.
+          </p>
+          <div class="tag-list">
+            <span class="tag">ADaM packages</span>
+            <span class="tag">TLF libraries</span>
+            <span class="tag">P21 reports</span>
+          </div>
+        </div>
+
+        <div class="card">
+          <h3>HEOR & ICER Modeling</h3>
+          <p>
+            ICER models in R and Excel, sensitivity analyses (SA), probabilistic sensitivity analyses (PSA), and visual decision dashboards for market access.
+          </p>
+          <div class="tag-list">
+            <span class="tag">Cost-effectiveness</span>
+            <span class="tag">PSA</span>
+            <span class="tag">Budget impact</span>
+          </div>
+        </div>
+
+        <div class="card">
+          <h3>Reporting Automation & Data Engineering</h3>
+          <p>
+            Automated generation of Word/Excel reports, ETL pipelines for clinical and PK data, and “one-click” workflows for repeat analyses.
+          </p>
+          <div class="tag-list">
+            <span class="tag">R / Python / VBA</span>
+            <span class="tag">ETL</span>
+            <span class="tag">Report templates</span>
+          </div>
+        </div>
+
+        <div class="card">
+          <h3>AI-Assisted Medical Analytics</h3>
+          <p>
+            AI-supported drafting of PK narratives, CSR sections, and evidence summaries that remain anchored to validated analytical outputs.
+          </p>
+          <div class="tag-list">
+            <span class="tag">Narrative drafts</span>
+            <span class="tag">Summaries</span>
+            <span class="tag">Evidence review</span>
+          </div>
+        </div>
+
+        <div class="card">
+          <h3>Workflow Apps & APIs</h3>
+          <p>
+            Shiny apps and Plumber APIs that package PK, CDISC, or HEOR logic into reusable internal tools with auditability and version control.
+          </p>
+          <div class="tag-list">
+            <span class="tag">Shiny apps</span>
+            <span class="tag">APIs</span>
+            <span class="tag">Internal tools</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="section-inner two-col">
+      <div>
+        <h2 style="font-size:1.2rem; margin-bottom:8px;">Example Engagements</h2>
+        <ul style="font-size:0.9rem; color:var(--text-muted);">
+          <li><strong>PK package for Phase I trial</strong> – NCA-ready datasets, PK tables/listings, and key exposure figures.</li>
+          <li><strong>ADaM + TLF bundle</strong> – Core ADaM datasets, reusable TLF programs, and a validated P21 package.</li>
+          <li><strong>ICER model build</strong> – Base cost-effectiveness model in R, Excel front-end, and PSA routines.</li>
+          <li><strong>Reporting automation prototype</strong> – Turn a repetitive Word/Excel report into a parameterized script.</li>
+          <li><strong>Shiny dashboard</strong> – Interactive PK or HEOR explorer for internal teams.</li>
+        </ul>
+      </div>
+
+      <div class="card">
+        <h3>How scoping works</h3>
+        <p>
+          Each engagement is scoped around four questions:
+        </p>
+        <ul>
+          <li>What data will be available, and in what structure?</li>
+          <li>Which outputs are essential vs. “nice-to-have”?</li>
+          <li>What are the regulatory or internal standards to follow?</li>
+          <li>Where could automation meaningfully reduce future workload?</li>
+        </ul>
+        <p style="margin-top:10px;">
+          <a class="btn btn-primary" href="consultation.html">Discuss a project</a>
+        </p>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="footer-inner">
+    <span>© <span id="year"></span> Deoyin PX · A Deoyin and Company LLC Brand.</span>
+    <span style="font-size: 0.78rem;">PK/PD · CDISC · HEOR · Automation · AI-assisted Analytics</span>
+  </div>
+</footer>
+</div>
+<script>
+  document.getElementById("year").textContent = new Date().getFullYear();
+</script>
+</body>
+</html>
