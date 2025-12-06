@@ -309,28 +309,47 @@
         </div>
 
         <div>
-          <div class="card">
-            <h3>Draft your message</h3>
-            <p style="margin-bottom:8px;">
-              You can use this as a scratchpad before sending your email.
-            </p>
+        <div class="card">
+          <h3>Send a consultation request</h3>
+        
+          <form id="consultForm">
+            <!-- Web3Forms access key -->
+            <input type="hidden" name="access_key" value="93c007e9-0e38-4d01-a72a-f59452e7859b">
+        
+            <!-- Email subject -->
+            <input type="hidden" name="subject" value="New Deoyin PX Consultation Request">
+        
+            <!-- Spam protection -->
+            <input type="checkbox" name="botcheck" style="display:none;">
+        
             <label for="name">Your name / organization</label>
-            <input type="text" id="name" placeholder="e.g., Clinical Pharmacology Team, Company X" />
-
+            <input type="text" id="name" name="name"
+                   placeholder="e.g., Clinical Pharmacology Team, Company X" required />
+        
             <label for="email">Contact email</label>
-            <input type="email" id="email" placeholder="you@company.com" />
-
+            <input type="email" id="email" name="email"
+                   placeholder="you@company.com" required />
+        
+            <label for="project_type">Project type</label>
+            <input type="text" id="project_type" name="project_type"
+                   placeholder="PK/PD, CDISC, HEOR/ICER, automation, etc." />
+        
             <label for="summary">Project summary</label>
-            <textarea id="summary" rows="6" placeholder="Briefly describe the study or workflow you’d like help with."></textarea>
-
+            <textarea id="summary" name="summary" rows="5"
+                      placeholder="Briefly describe your study or workflow needs."
+                      required></textarea>
+        
             <label for="deliverables">Desired deliverables</label>
-            <textarea id="deliverables" rows="4" placeholder="PK tables, NCA outputs, ADaM datasets, TLFs, ICER model, Word/Excel automation, Shiny app, etc."></textarea>
-
-            <p class="info-block">
-              When you are ready, copy this text into an email to
-              <span class="inline-label">info@deoyin.com</span> or use the “Email Deoyin PX” button.
-            </p>
-          </div>
+            <textarea id="deliverables" name="deliverables" rows="4"
+                      placeholder="PK tables, NCA outputs, ADaM datasets, TLFs, ICER models, automation scripts, dashboards, etc."></textarea>
+        
+            <button type="submit" class="btn btn-primary" style="margin-top:8px;">
+              Send consultation request
+            </button>
+        
+            <div id="form-status" style="margin-top:10px; font-size:0.85rem;"></div>
+          </form>
+        </div>
 
           <div class="card" style="margin-top:18px;">
             <h3>Typical next steps</h3>
@@ -357,6 +376,37 @@
 </div>
 <script>
   document.getElementById("year").textContent = new Date().getFullYear();
+</script>
+  <script>
+  const form = document.getElementById("consultForm");
+  const statusDiv = document.getElementById("form-status");
+
+  form.addEventListener("submit", async function (e) {
+    e.preventDefault();
+    statusDiv.textContent = "Sending...";
+    statusDiv.style.color = "#9ca3af";
+
+    try {
+      const formData = new FormData(form);
+      const response = await fetch("https://api.web3forms.com/submit", {
+        method: "POST",
+        body: formData
+      });
+      const result = await response.json();
+
+      if (result.success) {
+        statusDiv.textContent = "Thank you — your message has been sent. We'll respond shortly.";
+        statusDiv.style.color = "#22c55e";
+        form.reset();
+      } else {
+        statusDiv.textContent = "Error — please try again or email info@deoyin.com.";
+        statusDiv.style.color = "#f97373";
+      }
+    } catch (err) {
+      statusDiv.textContent = "Network error. Please try again.";
+      statusDiv.style.color = "#f97373";
+    }
+  });
 </script>
 </body>
 </html>
