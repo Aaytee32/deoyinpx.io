@@ -6,6 +6,14 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="description" content="Deoyin PX delivers modern PK/PD analytics, CDISC & TLF programming, HEOR/ICER modeling, reporting automation, and AI-assisted clinical analytics for pharma and biotech." />
   <style>
+    html, body {
+      margin: 0;
+      padding: 0;
+      height: auto;
+      min-height: 100%;
+      overflow-y: auto;   /* ensure the page can scroll vertically */
+    }
+
     :root {
       --bg-dark: #050814;
       --bg-hero-grad: linear-gradient(135deg, #050814, #111827, #1f2937);
@@ -40,11 +48,12 @@
       text-decoration: underline;
     }
 
-    .page {
-      min-height: 100vh;
-      display: flex;
-      flex-direction: column;
-    }
+.page {
+  min-height: 100vh;  /* keep if you want footer pushed down a bit */
+  /* remove flex layout to avoid scroll issues */
+  /* display: flex;
+     flex-direction: column; */
+}
 
     header {
       background: var(--bg-hero-grad);
@@ -277,7 +286,8 @@
     }
 
     main {
-      flex: 1;
+      /* remove flex:1 so main behaves like normal content */
+      /* flex: 1; */
     }
 
     .section {
