@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Thank You | Deoyin PX</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <style>
+    /* You can copy the same :root and base styles from index.html */
+    :root {
+      --bg-dark: #050814;
+      --bg-hero-grad: linear-gradient(135deg, #050814, #111827, #1f2937);
+      --accent: #f59e0b;
+      --accent-soft: rgba(245, 158, 11, 0.1);
+      --text-main: #e5e7eb;
+      --text-muted: #9ca3af;
+      --card-bg: #0b1120;
+      --border-subtle: #1f2937;
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background: radial-gradient(circle at top, #020617 0, #020617 40%, #020617 100%);
+      color: var(--text-main);
+      line-height: 1.6;
+    }
+
+    .page {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    header {
+      background: var(--bg-hero-grad);
+      border-bottom: 1px solid #111827;
+    }
+
+    .nav {
+      max-width: 1120px;
+      margin: 0 auto;
+      padding: 16px 20px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+    }
+
+    .nav-left {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .logo-text-main {
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      font-size: 0.9rem;
+      text-transform: uppercase;
+    }
+
+    .logo-text-sub {
+      font-size: 0.7rem;
+      color: var(--text-muted);
+    }
+
+    main {
+      flex: 1;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 40px 20px;
+    }
+
+    .thank-card {
+      max-width: 580px;
+      width: 100%;
+      background: var(--card-bg);
+      border-radius: 18px;
+      border: 1px solid var(--border-subtle);
+      padding: 24px 24px 26px;
+      box-shadow: 0 18px 40px rgba(15, 23, 42, 0.8);
+    }
+
+    .thank-title {
+      font-size: 1.4rem;
+      margin-bottom: 8px;
+    }
+
+    .thank-body {
+      font-size: 0.92rem;
+      color: var(--text-muted);
+      margin-bottom: 16px;
+    }
+
+    .thank-meta {
+      font-size: 0.85rem;
+      color: var(--text-muted);
+      margin-bottom: 18px;
+    }
+
+    .btn-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 9px 18px;
+      border-radius: 999px;
+      font-size: 0.9rem;
+      border: 1px solid transparent;
+      cursor: pointer;
+      text-decoration: none;
+    }
+
+    .btn-primary {
+      background: var(--accent);
+      border-color: var(--accent);
+      color: #020617;
+      font-weight: 600;
+    }
+
+    .btn-ghost {
+      background: transparent;
+      border-color: rgba(148, 163, 184, 0.6);
+      color: var(--text-main);
+    }
+
+    footer {
+      border-top: 1px solid #111827;
+      background: #020617;
+      font-size: 0.8rem;
+      color: var(--text-muted);
+    }
+
+    .footer-inner {
+      max-width: 1120px;
+      margin: 0 auto;
+      padding: 14px 20px 18px;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      gap: 10px;
+      align-items: center;
+    }
+  </style>
+</head>
+<body>
+<div class="page">
+
+  <header>
+    <div class="nav">
+      <div class="nav-left">
+        <img src="img/deoyin-px-logo.png"
+             alt="Deoyin PX Logo"
+             style="height:40px; width:auto; margin-right:10px;">
+        <div>
+          <div class="logo-text-main">DEOYIN PX</div>
+          <div class="logo-text-sub">Clinical Analytics & Automation</div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <div class="thank-card">
+      <h1 class="thank-title">Thank you for reaching out.</h1>
+      <p class="thank-body">
+        Your consultation request has been received by the Deoyin PX team.
+        We typically review new project requests within 1–2 business days
+        and will contact you via email with clarifying questions or proposed next steps.
+      </p>
+      <p class="thank-meta">
+        In the meantime, you can explore our PK/PD, CDISC, HEOR, and automation services
+        to see how Deoyin PX supports clinical, pharmacometrics, and market access teams.
+      </p>
+      <div class="btn-row">
+        <a href="index.html" class="btn btn-primary">Back to homepage</a>
+        <a href="insights.html" class="btn btn-ghost">Visit insights</a>
+      </div>
+    </div>
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+      <span>© <span id="year"></span> Deoyin PX · A Deoyin and Company LLC Brand.</span>
+      <span style="font-size: 0.78rem;">PK/PD · CDISC · HEOR · Automation · AI-assisted Analytics</span>
+    </div>
+  </footer>
+
+</div>
+<script>
+  document.getElementById("year").textContent = new Date().getFullYear();
+</script>
+</body>
+</html>

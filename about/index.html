@@ -1,0 +1,389 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>About | Deoyin PX | Clinical Analytics & Automation</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="Learn more about Deoyin PX, a clinical analytics and automation brand modernizing PK/PD, CDISC, HEOR, and reporting workflows." />
+  <style>
+    /* Same base styles as index.html */
+    :root {
+      --bg-dark: #050814;
+      --bg-hero-grad: linear-gradient(135deg, #050814, #111827, #1f2937);
+      --accent: #f59e0b;
+      --accent-soft: rgba(245, 158, 11, 0.1);
+      --text-main: #e5e7eb;
+      --text-muted: #9ca3af;
+      --card-bg: #0b1120;
+      --border-subtle: #1f2937;
+      --chip-bg: rgba(31, 41, 55, 0.8);
+      --link: #38bdf8;
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background: radial-gradient(circle at top, #020617 0, #020617 40%, #020617 100%);
+      color: var(--text-main);
+      line-height: 1.6;
+    }
+
+    a { color: var(--link); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+
+    .page { min-height: 100vh; display: flex; flex-direction: column; }
+
+    header {
+      background: var(--bg-hero-grad);
+      border-bottom: 1px solid #111827;
+      position: sticky;
+      top: 0;
+      z-index: 20;
+    }
+
+    .nav {
+      max-width: 1120px;
+      margin: 0 auto;
+      padding: 16px 20px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+    }
+
+    .nav-left {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .logo-text {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .logo-text-main {
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      font-size: 0.9rem;
+      text-transform: uppercase;
+    }
+
+    .logo-text-sub {
+      font-size: 0.7rem;
+      color: var(--text-muted);
+    }
+
+    .nav-center {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+    }
+
+    .nav-center .nav-link {
+      font-size: 0.85rem;
+      padding: 8px 12px;
+      border-radius: 999px;
+      color: var(--text-main);
+      border: 1px solid rgba(148, 163, 184, 0.25);
+      transition: background 0.2s, border-color 0.2s;
+      text-decoration: none;
+    }
+
+    .nav-center .nav-link:hover {
+      background: rgba(148, 163, 184, 0.15);
+      border-color: rgba(148, 163, 184, 0.5);
+    }
+
+    .nav-center .nav-link.active {
+      background: var(--accent-soft);
+      border-color: var(--accent);
+      color: var(--accent);
+      font-weight: 600;
+    }
+
+    .nav-right {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 0.85rem;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 10px 20px;
+      border-radius: 999px;
+      font-size: 0.9rem;
+      border: 1px solid transparent;
+      cursor: pointer;
+      text-decoration: none;
+    }
+
+    .btn-primary {
+      background: var(--accent);
+      border-color: var(--accent);
+      color: #020617;
+      font-weight: 600;
+      box-shadow: 0 12px 30px rgba(0,0,0,0.4);
+    }
+
+    .btn-primary:hover { filter: brightness(1.05); }
+
+    @media (max-width: 900px) {
+      .nav { flex-wrap: wrap; justify-content: center; }
+      .nav-center { order: 3; flex-wrap: wrap; justify-content: center; }
+    }
+
+    main { flex: 1; }
+
+    .section {
+      padding: 40px 20px;
+    }
+
+    .section-inner {
+      max-width: 1120px;
+      margin: 0 auto;
+    }
+
+    .hero-simple {
+      padding-top: 32px;
+      padding-bottom: 10px;
+    }
+
+    .page-eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 4px 10px;
+      border-radius: 999px;
+      background: var(--accent-soft);
+      color: var(--accent);
+      font-size: 0.78rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+    }
+
+    .page-title {
+      font-size: clamp(1.9rem, 2.6vw + 1rem, 2.4rem);
+      font-weight: 650;
+      letter-spacing: -0.03em;
+      margin: 14px 0 8px;
+    }
+
+    .page-subtitle {
+      font-size: 0.95rem;
+      color: var(--text-muted);
+      max-width: 640px;
+    }
+
+    .section-title {
+      font-size: 1.25rem;
+      margin-bottom: 8px;
+    }
+
+    .section-sub {
+      font-size: 0.9rem;
+      color: var(--text-muted);
+      max-width: 680px;
+    }
+
+    .two-col {
+      display: grid;
+      grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr);
+      gap: 24px;
+      margin-top: 26px;
+    }
+
+    @media (max-width: 900px) {
+      .two-col {
+        grid-template-columns: minmax(0, 1fr);
+      }
+    }
+
+    .card {
+      background: var(--card-bg);
+      border-radius: 16px;
+      padding: 18px 18px 20px;
+      border: 1px solid var(--border-subtle);
+      box-shadow: 0 10px 30px rgba(15, 23, 42, 0.7);
+      font-size: 0.87rem;
+      color: var(--text-muted);
+    }
+
+    .card h3 {
+      margin-top: 0;
+      margin-bottom: 6px;
+      font-size: 0.98rem;
+      color: var(--text-main);
+    }
+
+    ul { padding-left: 20px; }
+
+    footer {
+      border-top: 1px solid #111827;
+      background: #020617;
+      font-size: 0.8rem;
+      color: var(--text-muted);
+    }
+
+    .footer-inner {
+      max-width: 1120px;
+      margin: 0 auto;
+      padding: 14px 20px 18px;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      gap: 10px;
+      align-items: center;
+    }
+  </style>
+</head>
+<body>
+<div class="page">
+<header>
+  <div class="nav">
+    <div class="nav-left">
+      <img src="img/deoyin-px-logo.png"
+           alt="Deoyin PX Logo"
+           style="height:48px; width:auto; margin-right:10px;">
+      <div class="logo-text">
+        <div class="logo-text-main">DEOYIN PX</div>
+        <div class="logo-text-sub">Clinical Analytics & Automation</div>
+      </div>
+    </div>
+
+    <div class="nav-center">
+      <a class="nav-link" href="index.html">Home</a>
+      <a class="nav-link active" href="about.html">About Us</a>
+      <a class="nav-link" href="services.html">Products & Services</a>
+      <a class="nav-link" href="insights.html">Insights</a>
+    </div>
+
+    <div class="nav-right">
+      <a class="btn btn-primary" href="consultation.html">
+        Get Consultation
+      </a>
+    </div>
+  </div>
+</header>
+
+<main>
+  <section class="section hero-simple">
+    <div class="section-inner">
+      <div class="page-eyebrow">About Deoyin PX</div>
+      <h1 class="page-title">Clinical analytics built for modern drug development.</h1>
+      <p class="page-subtitle">
+        Deoyin PX is a clinical analytics and workflow-automation brand under <strong>Deoyin and Company LLC</strong>, focused on modernizing pharmacokinetic, regulatory, and health economics workflows through R-based analytics, Shiny applications, automated reporting, and intelligent data engineering.
+      </p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="section-inner two-col">
+      <div>
+        <h2 class="section-title">Our Mission</h2>
+        <p class="section-sub">
+          We exist to simplify complex analytical workflows, shorten timelines to insight and submission, and elevate the quality and reproducibility of clinical evidence.
+        </p>
+        <p style="font-size:0.9rem; color:var(--text-muted); margin-top:10px;">
+          Many PK/PD, CDISC, and HEOR workflows remain heavily manual-spread across ad-hoc scripts, spreadsheets, and slide decks. Deoyin PX helps teams consolidate this into validated, reproducible pipelines that create the same high-quality outputs every single time.
+        </p>
+      </div>
+
+      <div class="card">
+        <h3>What makes Deoyin PX different?</h3>
+        <ul>
+          <li>Deep focus on <strong>PK/PD</strong>, <strong>CDISC</strong>, and <strong>HEOR/ICER</strong>-not generic analytics.</li>
+          <li>Preference for <strong>reusable code and apps</strong> over one-off scripts.</li>
+          <li>Hands-on experience with <strong>R, Shiny, Python, VBA, and ETL</strong> for clinical data.</li>
+          <li>Orientation toward <strong>regulatory expectations</strong> and fit-for-submission outputs.</li>
+          <li>Automation mindset: design work so that the second study is 10× easier than the first.</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="section-inner">
+      <h2 class="section-title">Core Focus Areas</h2>
+      <p class="section-sub">
+        Deoyin PX sits at the intersection of pharmacometrics, biostatistics, health economics, and data engineering.
+      </p>
+
+      <div style="display:grid; grid-template-columns:repeat(auto-fit,minmax(260px,1fr)); gap:18px; margin-top:22px;">
+        <div class="card">
+          <h3>PK/PD & Clinical Pharmacology</h3>
+          <p>
+            From single-dose PK assessments to complex multi-cohort designs, we help teams move from concentration-time data to clear, submission-ready tables and figures.
+          </p>
+        </div>
+        <div class="card">
+          <h3>CDISC & Regulatory Programming</h3>
+          <p>
+            ADaM programming, TLF development, and P21 validation pipelines aligned with regulatory guidance and internal standards.
+          </p>
+        </div>
+        <div class="card">
+          <h3>HEOR, ICER & Market Access</h3>
+          <p>
+            R- and Excel-based models that quantify incremental value, uncertainty, and budget impact in ways that both clinical and commercial stakeholders can use.
+          </p>
+        </div>
+        <div class="card">
+          <h3>Automation & AI</h3>
+          <p>
+            Automated report generation, smart templating for Word/Excel, and AI-assisted narratives that remain grounded in validated outputs.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="section-inner two-col">
+      <div>
+        <h2 class="section-title">How We Collaborate</h2>
+        <p class="section-sub">
+          Deoyin PX works as an extension of your internal teams-fitting into existing governance, quality, and documentation structures.
+        </p>
+        <ul style="font-size:0.9rem; color:var(--text-muted); margin-top:10px;">
+          <li>Project-based engagements for specific studies or work packages.</li>
+          <li>Retainer-style support for ongoing PK/PD, CDISC, or HEOR workloads.</li>
+          <li>Prototype-to-production: starting with a single workflow and evolving it into an internal app or API.</li>
+        </ul>
+      </div>
+
+      <div class="card">
+        <h3>Next steps</h3>
+        <p>
+          If you are exploring automation or need bandwidth for upcoming PK, TLF, or HEOR work:
+        </p>
+        <ul>
+          <li>Share a brief on your study or portfolio needs.</li>
+          <li>Align on deliverables, timelines, and preferred technologies.</li>
+          <li>Co-design a roadmap that covers both immediate outputs and longer-term reusability.</li>
+        </ul>
+        <p style="margin-top:10px;">
+          <a class="btn btn-primary" href="consultation.html">Schedule a consultation</a>
+        </p>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="footer-inner">
+    <span>© <span id="year"></span> Deoyin PX · A Deoyin and Company LLC Brand.</span>
+    <span style="font-size: 0.78rem;">PK/PD · CDISC · HEOR · Automation · AI-assisted Analytics</span>
+  </div>
+</footer>
+</div>
+<script>
+  document.getElementById("year").textContent = new Date().getFullYear();
+</script>
+</body>
+</html>
