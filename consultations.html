@@ -1,0 +1,362 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Get Consultation | Deoyin PX</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="Request a Deoyin PX consultation for PK/PD analytics, CDISC programming, HEOR/ICER modeling, and clinical reporting automation." />
+  <style>
+    :root {
+      --bg-dark: #050814;
+      --bg-hero-grad: linear-gradient(135deg, #050814, #111827, #1f2937);
+      --accent: #f59e0b;
+      --accent-soft: rgba(245, 158, 11, 0.1);
+      --text-main: #e5e7eb;
+      --text-muted: #9ca3af;
+      --card-bg: #0b1120;
+      --border-subtle: #1f2937;
+      --chip-bg: rgba(31, 41, 55, 0.8);
+      --link: #38bdf8;
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background: radial-gradient(circle at top, #020617 0, #020617 40%, #020617 100%);
+      color: var(--text-main);
+      line-height: 1.6;
+    }
+
+    a { color: var(--link); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+
+    .page { min-height: 100vh; display: flex; flex-direction: column; }
+
+    header {
+      background: var(--bg-hero-grad);
+      border-bottom: 1px solid #111827;
+      position: sticky;
+      top: 0;
+      z-index: 20;
+    }
+
+    .nav {
+      max-width: 1120px;
+      margin: 0 auto;
+      padding: 16px 20px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+    }
+
+    .nav-left {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .logo-text { display: flex; flex-direction: column; }
+
+    .logo-text-main {
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      font-size: 0.9rem;
+      text-transform: uppercase;
+    }
+
+    .logo-text-sub {
+      font-size: 0.7rem;
+      color: var(--text-muted);
+    }
+
+    .nav-center {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+    }
+
+    .nav-center .nav-link {
+      font-size: 0.85rem;
+      padding: 8px 12px;
+      border-radius: 999px;
+      color: var(--text-main);
+      border: 1px solid rgba(148, 163, 184, 0.25);
+      transition: background 0.2s, border-color 0.2s;
+      text-decoration: none;
+    }
+
+    .nav-center .nav-link:hover {
+      background: rgba(148, 163, 184, 0.15);
+      border-color: rgba(148, 163, 184, 0.5);
+    }
+
+    /* No active state here since Get Consultation is a button, not nav item */
+
+    .nav-right {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 0.85rem;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 10px 20px;
+      border-radius: 999px;
+      font-size: 0.9rem;
+      border: 1px solid transparent;
+      cursor: pointer;
+      text-decoration: none;
+    }
+
+    .btn-primary {
+      background: var(--accent);
+      border-color: var(--accent);
+      color: #020617;
+      font-weight: 600;
+      box-shadow: 0 12px 30px rgba(0,0,0,0.4);
+    }
+
+    .btn-primary:hover { filter: brightness(1.05); }
+
+    @media (max-width: 900px) {
+      .nav { flex-wrap: wrap; justify-content: center; }
+      .nav-center { order: 3; flex-wrap: wrap; justify-content: center; }
+    }
+
+    main { flex: 1; }
+
+    .section { padding: 40px 20px; }
+
+    .section-inner { max-width: 900px; margin: 0 auto; }
+
+    .page-eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 4px 10px;
+      border-radius: 999px;
+      background: var(--accent-soft);
+      color: var(--accent);
+      font-size: 0.78rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+    }
+
+    .page-title {
+      font-size: clamp(1.9rem, 2.6vw + 1rem, 2.4rem);
+      font-weight: 650;
+      letter-spacing: -0.03em;
+      margin: 14px 0 8px;
+    }
+
+    .page-subtitle {
+      font-size: 0.95rem;
+      color: var(--text-muted);
+      max-width: 720px;
+    }
+
+    .two-col {
+      display: grid;
+      grid-template-columns: minmax(0,1.2fr) minmax(0,1fr);
+      gap: 24px;
+      margin-top: 26px;
+    }
+
+    @media (max-width: 900px) {
+      .two-col { grid-template-columns: minmax(0,1fr); }
+    }
+
+    .card {
+      background: var(--card-bg);
+      border-radius: 16px;
+      padding: 18px 18px 20px;
+      border: 1px solid var(--border-subtle);
+      box-shadow: 0 10px 30px rgba(15, 23, 42, 0.7);
+      font-size: 0.87rem;
+      color: var(--text-muted);
+    }
+
+    .card h3 {
+      margin: 0 0 8px;
+      font-size: 0.98rem;
+      color: var(--text-main);
+    }
+
+    ul { padding-left: 20px; }
+
+    .info-block {
+      font-size: 0.88rem;
+      color: var(--text-muted);
+      margin-top: 8px;
+    }
+
+    .inline-label {
+      font-weight: 600;
+      color: var(--text-main);
+    }
+
+    footer {
+      border-top: 1px solid #111827;
+      background: #020617;
+      font-size: 0.8rem;
+      color: var(--text-muted);
+    }
+
+    .footer-inner {
+      max-width: 1120px;
+      margin: 0 auto;
+      padding: 14px 20px 18px;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      gap: 10px;
+      align-items: center;
+    }
+
+    textarea, input[type="text"], input[type="email"] {
+      width: 100%;
+      padding: 8px 10px;
+      margin-top: 4px;
+      margin-bottom: 10px;
+      border-radius: 8px;
+      border: 1px solid #1f2937;
+      background: #020617;
+      color: var(--text-main);
+      font-family: inherit;
+      font-size: 0.88rem;
+    }
+
+    label {
+      font-size: 0.85rem;
+      color: var(--text-muted);
+    }
+  </style>
+</head>
+<body>
+<div class="page">
+<header>
+  <div class="nav">
+    <div class="nav-left">
+      <img src="img/deoyin-px-logo.png"
+           alt="Deoyin PX Logo"
+           style="height:48px; width:auto; margin-right:10px;">
+      <div class="logo-text">
+        <div class="logo-text-main">DEOYIN PX</div>
+        <div class="logo-text-sub">Clinical Analytics & Automation</div>
+      </div>
+    </div>
+
+    <div class="nav-center">
+      <a class="nav-link" href="index.html">Home</a>
+      <a class="nav-link" href="about.html">About Us</a>
+      <a class="nav-link" href="services.html">Products & Services</a>
+      <a class="nav-link" href="insights.html">Insights</a>
+    </div>
+
+    <div class="nav-right">
+      <a class="btn btn-primary" href="consultation.html">
+        Get Consultation
+      </a>
+    </div>
+  </div>
+</header>
+
+<main>
+  <section class="section">
+    <div class="section-inner">
+      <div class="page-eyebrow">Consultation</div>
+      <h1 class="page-title">Start a conversation about your PK/PD, CDISC, HEOR, or automation needs.</h1>
+      <p class="page-subtitle">
+        Use the guide below to structure a short email or message. The more context you share upfront, the faster we can determine scope, feasibility, and timelines.
+      </p>
+
+      <div class="two-col">
+        <div>
+          <div class="card">
+            <h3>Send a brief to Deoyin PX</h3>
+            <p>
+              You can email directly using the button below, or copy-paste the template into your own message.
+            </p>
+            <p style="margin-top:10px;">
+              <a class="btn btn-primary"
+                 href="mailto:info@deoyin.com?subject=Deoyin%20PX%20Consultation&body=Project%20type%20(PK%2FPD%2C%20CDISC%2C%20HEOR%2C%20automation)%3A%0AStudy%2Fprogram%20context%3A%0AKey%20deliverables%20(PK%20tables%2C%20ADaM%2C%20TLFs%2C%20ICER%20model%2C%20etc.)%3A%0AData%20availability%20and%20format%3A%0ATarget%20timelines%3A%0APreferred%20tools%20(R%2C%20Python%2C%20Excel%2FVBA%2C%20etc.)%3A%0AAny%20internal%20standards%20or%20regulatory%20constraints%3A%0A">
+                Email Deoyin PX
+              </a>
+            </p>
+            <div class="info-block">
+              Or email <span class="inline-label">info@deoyin.com</span> with the headings below.
+            </div>
+          </div>
+
+          <div class="card" style="margin-top:18px;">
+            <h3>Suggested brief structure</h3>
+            <ul>
+              <li><strong>Project type</strong> – PK/PD analytics, CDISC, HEOR/ICER, automation, or a combination.</li>
+              <li><strong>Study / program context</strong> – Phase, indication, key endpoints.</li>
+              <li><strong>Key deliverables</strong> – e.g., PK tables, ADaM datasets, TLFs, ICER model, dashboards.</li>
+              <li><strong>Data availability</strong> – Current format, CDISC status, data standards.</li>
+              <li><strong>Timelines</strong> – Regulatory or internal submission dates.</li>
+              <li><strong>Preferred tools</strong> – R, Python, Excel/VBA, Shiny, etc.</li>
+              <li><strong>Constraints</strong> – Internal templates, governance, or technology limits.</li>
+            </ul>
+          </div>
+        </div>
+
+        <div>
+          <div class="card">
+            <h3>Draft your message</h3>
+            <p style="margin-bottom:8px;">
+              You can use this as a scratchpad before sending your email.
+            </p>
+            <label for="name">Your name / organization</label>
+            <input type="text" id="name" placeholder="e.g., Clinical Pharmacology Team, Company X" />
+
+            <label for="email">Contact email</label>
+            <input type="email" id="email" placeholder="you@company.com" />
+
+            <label for="summary">Project summary</label>
+            <textarea id="summary" rows="6" placeholder="Briefly describe the study or workflow you’d like help with."></textarea>
+
+            <label for="deliverables">Desired deliverables</label>
+            <textarea id="deliverables" rows="4" placeholder="PK tables, NCA outputs, ADaM datasets, TLFs, ICER model, Word/Excel automation, Shiny app, etc."></textarea>
+
+            <p class="info-block">
+              When you are ready, copy this text into an email to
+              <span class="inline-label">info@deoyin.com</span> or use the “Email Deoyin PX” button.
+            </p>
+          </div>
+
+          <div class="card" style="margin-top:18px;">
+            <h3>Typical next steps</h3>
+            <ul>
+              <li>Initial review of your brief and any attached specs.</li>
+              <li>Short call (or email exchange) to clarify scope and constraints.</li>
+              <li>Proposal with options (e.g., one-off delivery vs. reusable app/workflow).</li>
+              <li>Agreement on timelines, milestones, and communication cadence.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="footer-inner">
+    <span>© <span id="year"></span> Deoyin PX · A Deoyin and Company LLC Brand.</span>
+    <span style="font-size: 0.78rem;">PK/PD · CDISC · HEOR · Automation · AI-assisted Analytics</span>
+  </div>
+</footer>
+</div>
+<script>
+  document.getElementById("year").textContent = new Date().getFullYear();
+</script>
+</body>
+</html>
