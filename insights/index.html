@@ -42,70 +42,88 @@
       z-index: 20;
     }
 
-    .nav {
-      max-width: 1120px;
-      margin: 0 auto;
-      padding: 16px 20px;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 16px;
-    }
+.nav {
+  max-width: 1120px;
+  margin: 0 auto;
+  padding: 16px 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+}
 
-    .nav-left {
-      display: flex;
-      align-items: center;
-      gap: 10px;
-    }
+.nav-left {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
 
-    .logo-text { display: flex; flex-direction: column; }
+.logo-text {
+  display: flex;
+  flex-direction: column;
+}
 
-    .logo-text-main {
-      font-weight: 600;
-      letter-spacing: 0.08em;
-      font-size: 0.9rem;
-      text-transform: uppercase;
-    }
+.logo-text-main {
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  font-size: 0.9rem;
+  text-transform: uppercase;
+}
 
-    .logo-text-sub {
-      font-size: 0.7rem;
-      color: var(--text-muted);
-    }
+.logo-text-sub {
+  font-size: 0.7rem;
+  color: var(--text-muted);
+}
 
-    .nav-center {
-      display: flex;
-      align-items: center;
-      gap: 20px;
-    }
+/* NEW: center nav links */
+.nav-center {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 0.82rem;
+}
 
-    .nav-center .nav-link {
-      font-size: 0.85rem;
-      padding: 8px 12px;
-      border-radius: 999px;
-      color: var(--text-main);
-      border: 1px solid rgba(148, 163, 184, 0.25);
-      transition: background 0.2s, border-color 0.2s;
-      text-decoration: none;
-    }
+    /* Right side (chip + button) */
+.nav-right {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 0.85rem;
+}
+/* --- NAV LINKS --- */
 
-    .nav-center .nav-link:hover {
-      background: rgba(148, 163, 184, 0.15);
-      border-color: rgba(148, 163, 184, 0.5);
-    }
+.nav-link {
+  padding: 7px 12px;
+  border-radius: 999px;
+  border: 1px solid rgba(148, 163, 184, 0.4);
+  font-size: 0.8rem;
+  color: var(--text-main);
+  text-decoration: none;
+  background: transparent;
+  transition: background 0.15s ease, border-color 0.15s ease, color 0.15s ease;
+}
 
-    .nav-center .nav-link.active {
-      background: var(--accent-soft);
-      border-color: var(--accent);
-      color: var(--accent);
-      font-weight: 600;
-    }
+.nav-link:hover {
+  background: rgba(15, 23, 42, 0.9);
+  border-color: rgba(148, 163, 184, 0.8);
+}
 
-    .nav-right {
-      display: flex;
-      align-items: center;
-      gap: 10px;
-      font-size: 0.85rem;
-    }
+/* Active page link */
+.nav-link.nav-active {
+  background: var(--accent-soft);
+  border-color: var(--accent);
+  color: var(--accent);
+}
+
+/* “A Deoyin and Company LLC Brand” chip – keep or adapt */
+.nav-chip {
+  padding: 6px 10px;
+  border-radius: 999px;
+  background: var(--chip-bg);
+  color: var(--text-muted);
+  border: 1px solid #1f2937;
+}
+
 
     .btn {
       display: inline-flex;
