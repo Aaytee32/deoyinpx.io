@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48" fill="none" role="img" aria-label="Deoyin PX">
+  <rect x="0.75" y="0.75" width="46.5" height="46.5" rx="3" fill="#0e1218" stroke="#c9a84c" stroke-opacity="0.4" stroke-width="1.5"/>
+  <path d="M13 31 L10.5 18 L18 23.5 L24 13.5 L30 23.5 L37.5 18 L35 31 Z" fill="#c9a84c" fill-opacity="0.12" stroke="#c9a84c" stroke-width="1.8" stroke-linejoin="round"/>
+  <path d="M13 35.5 H35" stroke="#c9a84c" stroke-width="1.8" stroke-linecap="round"/>
+  <g fill="#c9a84c">
+    <circle cx="10.5" cy="18" r="1.9"/>
+    <circle cx="24" cy="13.5" r="1.9"/>
+    <circle cx="37.5" cy="18" r="1.9"/>
+  </g>
+</svg>
